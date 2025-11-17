@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurav - CSE Student</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+    /* --- Basic Setup --- */
+    
+     :root {
+        --primary-color: #007BFF;
+        --primary-dark: #0056b3;
+        --dark-color: #222;
+        --light-color: #f4f4f4;
+        --text-color: #333;
+        --white: #ffffff;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background: var(--white);
+    }
+    
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    h1,
+    h2 {
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+    
+    h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        color: var(--primary-color);
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    a {
+        text-decoration: none;
+        color: var(--primary-color);
+    }
+    /* --- Header & Navigation --- */
+    
+    header {
+        background: var(--white);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+    }
+    
+    nav .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--dark-color);
+    }
+    
+    nav .nav-links {
+        display: flex;
+        list-style: none;
+    }
+    
+    nav .nav-links li {
+        padding: 0 1rem;
+    }
+    
+    nav .nav-links a {
+        color: var(--text-color);
+        font-weight: 400;
+        transition: color 0.3s ease;
+    }
+    
+    nav .nav-links a:hover {
+        color: var(--primary-color);
+    }
+    
+    .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    /* --- Hero Section --- */
+    
+    .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+        color: var(--white);
+        padding-top: 70px;
+        /* Offset for fixed header */
+    }
+    
+    .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+    }
+    
+    .cta-button {
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 0.8rem 1.5rem;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+    }
+    
+    .cta-button:hover {
+        background: var(--primary-dark);
+    }
+    /* --- General Section Styling --- */
+    
+    .section {
+        padding: 5rem 0;
+    }
+    
+    .section-gray {
+        background: var(--light-color);
+    }
+    /* --- About Section --- */
+    
+    .about-content {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--primary-color);
+    }
+    
+    .about-content p {
+        flex: 1;
+        font-size: 1.1rem;
+    }
+    /* --- Projects Section --- */
+    
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .project-card {
+        background: var(--white);
+        border-radius: 5px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .project-card img {
+        display: block;
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .project-card h3 {
+        font-size: 1.3rem;
+        padding: 1rem 1rem 0.5rem 1rem;
+    }
+    
+    .project-card p {
+        padding: 0 1rem 1rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .project-links {
+        padding: 0 1rem 1rem 1rem;
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .project-links a {
+        font-weight: 700;
+    }
+    
+    .project-links a i {
+        margin-right: 0.3rem;
+    }
+    /* --- Skills Section --- */
+    
+    .skills-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .skills-list li {
+        background: var(--light-color);
+        color: var(--primary-dark);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    /* --- Contact/Footer --- */
+    
+    footer {
+        background: var(--dark-color);
+        color: var(--white);
+        text-align: center;
+    }
+    
+    footer h2 {
+        color: var(--white);
+    }
+    
+    .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .contact-icon {
+        font-size: 1.5rem;
+        color: var(--white);
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .contact-icon:hover {
+        color: var(--primary-color);
+        transform: translateY(-3px);
+    }
+    
+    .contact-icon i {
+        margin-right: 0.5rem;
+    }
+    
+    .copyright {
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        color: #aaa;
+    }
+    /* --- Responsive (Mobile) --- */
+    
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2.5rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+        }
+        .menu-toggle {
+            display: block;
+        }
+        .nav-links {
+            position: absolute;
+            top: 70px;
+            left: -100%;
+            /* Start off-screen */
+            width: 100%;
+            height: calc(100vh - 70px);
+            background: var(--white);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: left 0.3s ease;
+        }
+        .nav-links.active {
+            left: 0;
+        }
+        .nav-links li {
+            padding: 1.5rem 0;
+            font-size: 1.5rem;
+        }
+        .about-content {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+</style>
+
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Gaurav</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>Hi, I'm Gaurav</h1>
+            <p>Computer Science Engineering Student at DTU</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="container section">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <img src="https://via.placeholder.com/150" alt="Gaurav" class="profile-pic">
+            <p>
+                Welcome to my portfolio! I am a passionate Computer Science Engineering student at Delhi Technological University (DTU). I have a strong interest in software development, machine learning, and web technologies.
+                <br><br> I am always eager to learn new things and take on challenging projects. This website showcases some of the work I've done and the skills I've acquired. Feel free to look around and get in touch!
+            </p>
+        </div>
+    </section>
+
+    <section id="projects" class="section section-gray">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 1">
+                    <h3>Project Title 1</h3>
+                    <p>creating my whole portfolio page </p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">View Code <i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 2">
+                    <h3>Project Title 2</h3>
+                    <p>making A Calculator</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">View Code <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 3">
+                    <h3>Project Title 3</h3>
+                    <p> A machine learning model to predict stock prices</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">View Code <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container section">
+        <h2>My Skills</h2>
+        <ul class="skills-list">
+            <li>C++</li>
+            <li>Python</li>
+            <li>Java</li>
+            <li>HTML5 & CSS3</li>
+            <li>JavaScript (ES6+)</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>SQL</li>
+            <li>Git & GitHub</li>
+        </ul>
+    </section>
+
+    <footer id="contact" class="section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>I'm open to new opportunities and collaborations. Feel free to reach out!</p>
+            <div class="contact-links">
+                <a href="gauravpawar05092006@gmail.com" class="contact-icon"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://www.linkedin.com/in/gaurav -289308378" target="_blank" class="contact-icon"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/tusharpawar22092001-ai" target="_blank" class="contact-icon"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+            <p class="copyright">&copy; 2025 Gaurav. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
